@@ -6,5 +6,36 @@
 
 module.exports = {
   /* Your site config here */
-  plugins: [],
+  siteMetadata:{
+title:'Joséphine Östman\'s Portfolio',
+menuLinks:[
+  {
+    name:'home',
+    link:'/'
+  },{
+    name:'contact',
+    link:'/contact'
+  },{
+    name:'projects',
+    link:'/projects'
+  },{
+    name:'skills',
+    link:'/skills'
+  }
+]
+  },
+  plugins: [{
+    resolve: `gatsby-plugin-styled-components`,
+    options: {
+    },
+  },
+    {
+      resolve: `gatsby-plugin-typescript`,
+      options: {
+        isTSX: true, // defaults to false
+        jsxPragma: `jsx`, // defaults to "React"
+        allExtensions: true, // defaults to false
+      },
+    },
+  ],
 }
