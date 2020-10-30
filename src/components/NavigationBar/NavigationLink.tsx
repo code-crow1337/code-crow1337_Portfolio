@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react"
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes,css } from "styled-components"
 import "typeface-playfair-display"
 
 const LinksContainer = styled.ul`
@@ -60,7 +60,7 @@ const LinkItem = styled.li<TLinkItem>`
   background-color: transparent;
   background-repeat: no-repeat;
   cursor: pointer;
-  transition: 3s linear;
+  transition: all 0.5s linear;
   &::before {
     content: "";
     position: absolute;
@@ -69,14 +69,25 @@ const LinkItem = styled.li<TLinkItem>`
     right: 0;
     left: 0;
     bottom: 0;
-    border: 3px solid #60daaa;
+    border: 3px solid transparent;
   }
   &:hover {
     background-position: 100% 0, 0 0%, 0% 100%, 100% 100%;
     background-size: 0 3px, 3px 0, 0% 3px, 3px 0;
     animation: ${rotate} 2s linear forwards 0.2s;
   }
-
+  ${({ selected }) =>
+    selected &&
+    css`
+     &::after {
+       content:"";
+       position:absolute;
+       background-color:#81ff70;
+       width:100%;
+       height:3px;
+       bottom:0px;
+     }
+    `}
  
 `
 const LogoItem = styled.li`
