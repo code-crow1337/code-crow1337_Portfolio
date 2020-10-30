@@ -1,5 +1,6 @@
 import React from "react"
 import { createGlobalStyle } from "styled-components"
+import {PageProps} from 'gatsby';
 import NavigationBar from "../components/NavigationBar/NavigationBar"
 import 'typeface-raleway'
 const GlobalStyle = createGlobalStyle`
@@ -14,12 +15,22 @@ body {
 h1 {
   color:white;
 }
-`
-export default function Layout():React.ReactElement {
+a {
+  text-decoration:none;
+  color:white;
+}
+`;
+
+if (typeof window !== 'undefined') {
+  // Make scroll behavior of internal links smooth
+  // eslint-disable-next-line global-require
+  require('smooth-scroll')('a[href*="#"]');
+}
+export default function Layout({location}:{location:PageProps['location']}):React.ReactElement {
   return (
     <>
       <GlobalStyle />
-      <NavigationBar/>
+      <NavigationBar location={location}/>
     </>
   )
 }
