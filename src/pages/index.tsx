@@ -7,8 +7,10 @@ import Skills from "./Skills"
 import Hero from "./Hero"
 
 export default function Home(props: PageProps) {
+  console.log('location in index.ts', props.location.hash)
   return (
     <>
+    
       <Layout location={props.location}>
         <main>
           <Hero/>

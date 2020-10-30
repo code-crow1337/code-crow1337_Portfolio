@@ -34,6 +34,7 @@ if (typeof window !== 'undefined') {
   require('smooth-scroll')('a[href*="#"]');
 }
 export default function Layout({children, location}:{children:any,location:PageProps['location']}):React.ReactElement {
+ console.log('location in layout',location)
   return (
     <>
       <GlobalStyle />

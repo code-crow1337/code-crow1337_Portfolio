@@ -48,7 +48,8 @@ export default function NavigationBar({
       window.removeEventListener("scroll", handleScroll)
     }
   },)
-  
+
+  console.log('navbar locatrion', location.hash)
   return (
     <Transition>
       <Navbar className={showNav ? "active" : "hidden"}>

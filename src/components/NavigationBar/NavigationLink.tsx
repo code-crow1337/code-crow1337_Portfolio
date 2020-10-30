@@ -74,7 +74,7 @@ const LinkItem = styled.li<TLinkItem>`
   &:hover {
     background-position: 100% 0, 0 0%, 0% 100%, 100% 100%;
     background-size: 0 3px, 3px 0, 0% 3px, 3px 0;
-    animation: ${rotate} 2s linear forwards 0.2s;
+    animation: ${rotate} 2s linear forwards;
   }
   ${({ selected }) =>
     selected &&
@@ -111,9 +111,11 @@ export default function NavigationLink({
   useEffect(() => {
     if (location.hash !== "") {
       const temp = location.hash.replace(/^#/g, '');
+      console.log('triggered', location.hash);
       setCurrentPath(temp)
     }
-  }, [location.hash, currentPath])
+  },)
+  console.log('outside', location.hash);
 
   const renderLinks = (links: any) => {
   const middleLogoPos = Math.round(links.length / 2) - 1
