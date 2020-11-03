@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const ProjectsSection = styled.section`
   height:100vh;
-  background-color:gray;
+  background-color:#00DE92;
 `;
 
 export default function Projects() {

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const SkillsSection = styled.section`
   height:100vh;
-  background-color:gray;
+  background-color:#006C82;
 `;
 
 export default function Projects() {

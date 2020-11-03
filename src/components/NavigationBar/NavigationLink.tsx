@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from "react"
-import styled, { keyframes,css } from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 import "typeface-playfair-display"
 
-const LinksContainer = styled.ul`
+/* const LinksContainer = styled.ul`
   list-style: none;
   display: flex;
   justify-content: space-evenly;
   margin: 0;
   padding: 0 32px;
   width: 100%;
-`;
+`; */
 
 type TLinkItem = {
-  selected:boolean; 
+  selected: boolean
 }
 const rotate = keyframes`
   0% {
@@ -46,8 +46,8 @@ const LinkItem = styled.li<TLinkItem>`
   font-size: 1.4rem;
   font-family: "Playfair Display", serif;
   text-transform: capitalize;
-  width: 8vw;
-  padding: 8px;
+  width: fit-content;
+  padding: 8px 24px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -79,57 +79,74 @@ const LinkItem = styled.li<TLinkItem>`
   ${({ selected }) =>
     selected &&
     css`
-     &::after {
-       content:"";
-       position:absolute;
-       background-color:#81ff70;
-       width:100%;
-       height:3px;
-       bottom:0px;
-     }
+      &::after {
+        content: "";
+        position: absolute;
+        background-color: #81ff70;
+        width: 100%;
+        height: 3px;
+        bottom: 0px;
+      }
     `}
- 
+
+  @media (max-width: 884px) {
+    transition: all 0s ease 0s;
+    &:hover {
+      animation: none;
+    }
+  }
 `
 const LogoItem = styled.li`
   font-size: 2rem;
+  margin: 0 24px;
+  list-style:none;
   font-family: "Playfair Display", serif;
-`;
+`
 const currentSelection = styled.li`
-  background-color:green;
-  color:black;
-`;
+  background-color: green;
+  color: black;
+`
 
 export default function NavigationLink({
   links,
   location,
+  handleClick,
 }: {
   links: string[]
   location: any
+  handleClick: any
 }): React.ReactElement {
   const [currentPath, setCurrentPath] = useState("")
 
   useEffect(() => {
     if (location.hash !== "") {
-      const temp = location.hash.replace(/^#/g, '');
-      console.log('triggered', location.hash);
+      const temp = location.hash.replace(/^#/g, "")
+      console.log("triggered", location.hash)
       setCurrentPath(temp)
     }
-  },)
-  console.log('outside', location.hash);
+  })
+  console.log("outside", location.hash)
 
   const renderLinks = (links: any) => {
-  const middleLogoPos = Math.round(links.length / 2) - 1
-  const tempArr = links.map((item: string, index: number) => (
-    <a href={`#${item}`} key={`${index}+${item}`}>
-      <LinkItem selected={item === currentPath}>{item}</LinkItem>
-    </a>
-  ))
-  tempArr[middleLogoPos] = (
-    <a href={`#home`} key={`${middleLogoPos}+${links[middleLogoPos]}`}>
-      <LogoItem>{links[middleLogoPos]}</LogoItem>
-    </a>
-  )
-  return tempArr
-}
-  return <LinksContainer>{renderLinks(links)}</LinksContainer>
+    const middleLogoPos = Math.round(links.length / 2) - 1
+    const tempArr = links.map((item: string, index: number) => (
+      <div key={`${index}+${item}`} onClick={() => handleClick(false)}>
+        <a href={`#${item}`}>
+          <LinkItem selected={item === currentPath}>{item}</LinkItem>
+        </a>
+      </div>
+    ))
+    tempArr[middleLogoPos] = (
+      <div
+        key={`${middleLogoPos}+${links[middleLogoPos]}`}
+        onClick={() => handleClick(false)}
+      >
+        <a href={`#home`} key={`${middleLogoPos}+${links[middleLogoPos]}`}>
+          <LogoItem>{links[middleLogoPos]}</LogoItem>
+        </a>
+      </div>
+    )
+    return tempArr
+  }
+  return <>{renderLinks(links)}</>
 }
