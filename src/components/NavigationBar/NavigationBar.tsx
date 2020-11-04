@@ -12,6 +12,7 @@ const Navbar = styled.nav`
   display: flex;
   justify-content: center;
   position: fixed;
+  width:100%;
   top: 0;
   // transition: top 10s ease-in-out;
   z-index: 9999;

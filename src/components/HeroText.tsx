@@ -9,7 +9,7 @@ flex-direction:column;
 height:fit-content;
 margin-top:80px;
 margin-left:80px;
-width:40vw;
+width:48vw;
 
 @media (max-width: 1242px) {
   margin-top:24px;

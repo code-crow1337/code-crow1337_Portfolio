@@ -5,3 +5,7 @@ export type TIconType = {
 export type THamburgerMenu = {
   open?:boolean; 
 }
+export type TErrorMessage = {
+  errorMessage:string;
+  isError: boolean;
+}

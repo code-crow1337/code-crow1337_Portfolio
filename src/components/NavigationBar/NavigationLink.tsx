@@ -45,6 +45,7 @@ const LinkItem = styled.li<TLinkItem>`
   color: white;
   font-size: 1.4rem;
   font-family: "Playfair Display", serif;
+  letter-spacing:1px;
   text-transform: capitalize;
   width: fit-content;
   padding: 8px 24px;

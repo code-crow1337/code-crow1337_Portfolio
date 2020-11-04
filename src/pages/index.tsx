@@ -14,13 +14,13 @@ export default function Home(props: PageProps) {
       <Layout location={props.location}>
         <main>
           <Hero />
-
           <Fade left>
             <Contact />
           </Fade>
           <Fade left>
             <Projects />
           </Fade>
+
           <Fade left>
             <Skills />
           </Fade>
