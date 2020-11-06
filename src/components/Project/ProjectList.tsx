@@ -1,27 +1,30 @@
 import React from "react"
 import Fade from "react-reveal/Fade"
 import styled from "styled-components"
+import { TProjectData } from "../../../types"
 import flutterProject from "../../assets/flutterProject.png"
 import foodMap from "../../assets/FoodMap_homepage.png"
 import githubSocial from "../../assets/github_user_info.png"
 import lassieApp from "../../assets/startScreen_lassie.png"
 import chatApp from "../../assets/chatApp_conversation.png"
 
-
 const ProjectListContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-
-  width: 48%;
+  max-width: 900px;
+  width: 75vw;
   position: relative;
   height: 100%;
   padding: 24px;
-  @media (max-width: 884px) {
-    justify-content: space-evenly;
+  @media (max-width: 1192px) {
+    justify-content: center;
+    width: 100vw;
+  }
+  @media (max-width: 412px) {
+    background-color:blue;
     align-items: center;
-    width: 100%;
   }
 `
 const ProjectPosRight = styled.div`
@@ -29,9 +32,12 @@ const ProjectPosRight = styled.div`
 
   @media (max-width: 884px) {
     align-items: center;
+    background-color:red;
   }
+
 `
 const TimeLineStyle = styled.span`
+  z-index: -1;
   height: 100%;
   width: 4px;
   background-color: white;
@@ -41,11 +47,11 @@ const TimeLineStyle = styled.span`
   transform: translate(-50%, -50%);
 `
 
-const renderListItems = (): React.ReactElement => {
-  const data = [
+const renderListItems = () => {
+  const data: TProjectData[] = [
     {
       name: "Flutter Business Card",
-      tech: "Dart",
+      tech: ["Dart"],
       date: "2020/01/13",
       sourceCode: "https://github.com/code-crow1337/Flutter-Business-Card",
       live: "",
@@ -53,7 +59,7 @@ const renderListItems = (): React.ReactElement => {
     },
     {
       name: "Food Map",
-      tech: "Node, JavaScript, React, TypeScript,CSS",
+      tech: ["Node", "JavaScript", "React", "TypeScript", "CSS"],
       date: "2020/07/30",
       sourceCode: "https://github.com/johnnyka/Food-Map",
       live: "",
@@ -61,7 +67,7 @@ const renderListItems = (): React.ReactElement => {
     },
     {
       name: "Lassie App",
-      tech: "React Native, TypeScript, Expo, Graphql, CSS",
+      tech: ["React Native", "TypeScript", "Expo", "Graphql", "CSS"],
       date: "2020/09/20",
       sourceCode: "https://github.com/code-crow1337/Lassie_app_Frontend",
       live: "",
@@ -69,7 +75,7 @@ const renderListItems = (): React.ReactElement => {
     },
     {
       name: "GitHub Social",
-      tech: "TypeScript, CSS, React",
+      tech: ["TypeScript", "CSS", "React"],
       date: "2020/09/22",
       sourceCode: "https://github.com/code-crow1337/Github-Social",
       live: "",
@@ -77,30 +83,34 @@ const renderListItems = (): React.ReactElement => {
     },
     {
       name: "Chat Sky",
-      tech: "TypeScript, SCSS, HTML, JavaScript,Node",
-      date: "2020/01/13",
+      tech: ["Socket.IO", "TypeScript", "SCSS", "HTML", "JavaScript", "Node"],
+      date: "2020/10/16",
       sourceCode: "https://github.com/code-crow1337/chatApp_client",
       live: "https://code-crow1337-chat-application.herokuapp.com/",
-      img:chatApp,
+      img: chatApp,
     },
   ]
+  return data.map((project: TProjectData, index: number) => {
+    return index % 2 === 0 ? (
+      <Fade left delay={500}>
+        <Project {...project} />
+      </Fade>
+    ) : (
+      <ProjectPosRight>
+        <Fade right delay={500}>
+          <Project {...project} left />
+        </Fade>
+      </ProjectPosRight>
+    )
+  })
 }
 import Project from "./Project"
 export default function ProjectList() {
   return (
     <ProjectListContainer>
       <TimeLineStyle />
-      <Fade left delay={500}>
-        <Project />
-      </Fade>
-      <ProjectPosRight>
-        <Fade right delay={500}>
-          <Project />
-        </Fade>
-      </ProjectPosRight>
-      <Fade left delay={500}>
-        <Project />
-      </Fade>
+
+      {renderListItems()}
     </ProjectListContainer>
   )
 }

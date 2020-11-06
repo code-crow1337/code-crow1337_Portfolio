@@ -1,10 +1,15 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import styled from "styled-components"
+import { TProjectData } from "../../../types"
+
 import flutterProject from "/home/josephine/Dev/gatsby/portfolio/src/assets/flutterProject.png"
 import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
-const ProjectContainer = styled.div`
+type TisLeft = {
+  isLeft: boolean
+}
+const ProjectContainer = styled.div<TisLeft>`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -17,6 +22,39 @@ const ProjectContainer = styled.div`
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 8px 0;
   border: 4px solid white;
+  position: relative;
+  ${({ isLeft }) =>
+    isLeft &&
+    `
+  &::before {
+    content:"";
+    height:4px;
+    width:64px;
+    background-color:white;
+    top:50%;
+    left:-64px;
+    position:absolute;
+  }
+  `}
+  ${({ isLeft }) =>
+    !isLeft &&
+    `
+    &::after {
+    content: "";
+    height: 4px;
+    width: 64px;
+    background-color: white;
+    top: 50%;
+    right: -64px;
+    position: absolute;
+  }
+  `}
+    @media (max-width: 893px) {
+    &::before,&::after{
+      height:0;
+      width:0;
+    }
+  }
 `
 const ProjectImageContainer = styled.div`
   display: flex;
@@ -50,6 +88,7 @@ const ProjectBTNContainer = styled.footer`
   display: flex;
   width: 100%;
   justify-content: space-between;
+  margin-top: 18px;
   button {
     background-color: #03b375;
     font-size: 0.9rem;
@@ -63,25 +102,55 @@ const ProjectBTNContainer = styled.footer`
     }
   }
 `
-export default function Project(props): React.ReactElement {
+const LiveButton = styled.button`
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
+  padding: 4px 16px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  background-color: #00b9a3;
+  &:hover,
+  &:active,
+  &:focus {
+    top: 54%;
+    transform: translate(-50%, -50%);
+  }
+`
+const renderTechnologies = (technologiesArr: string[]): string[] => {
+  const tempArr = technologiesArr.map((tech: string) => `${tech} `)
+  return tempArr.join().split("")
+}
+export default function Project(props: TProjectData): React.ReactElement {
+  const { name, tech, date, sourceCode, live, img, left } = props
   return (
-    <ProjectContainer>
-      <ProjectDate>2020/01/05</ProjectDate>
+    <ProjectContainer isLeft={left}>
+      <ProjectDate>{date}</ProjectDate>
       <ProjectImageContainer>
-        <img src={flutterProject} alt="" />
+        <img src={img} alt="" />
+        {live !== "" ? (
+          <a href={live} target="_blank">
+            <LiveButton>online</LiveButton>
+          </a>
+        ) : (
+          ""
+        )}
       </ProjectImageContainer>
       <ProjectInfo>
         <strong>
           Name:
           <br />
         </strong>
-        Flutter Business Card
+        {name}
       </ProjectInfo>
       <ProjectInfo>
-      <strong>
+        <strong>
           Technologies:
           <br />
-        </strong>Dart
+        </strong>
+        {renderTechnologies(tech)}
       </ProjectInfo>
 
       <ProjectBTNContainer>

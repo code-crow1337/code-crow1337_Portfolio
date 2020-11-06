@@ -54,13 +54,13 @@ section {
   box-sizing:border-box;
 /*   margin: 60px 0 0; */
   padding:16px;
-  width:100%;
+  width:100vw;
   height:100vh;
   opacity:0;
   animation: ${fadeIn}  0.4s ease-in forwards;
   @media (max-width: 1457px) {
-  height:100;
-  width:100%;
+  height:100%;
+  width:100vw;
   }
 
 }
@@ -81,6 +81,7 @@ section {
     background-color:#4BBC8E;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     transition: all 0.2s ease-in-out;
+    cursor:pointer;
     &:focus,&:hover {
       transform:translateY(4px);
       background-color:#81FF70;

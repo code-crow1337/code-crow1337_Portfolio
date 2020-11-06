@@ -7,11 +7,11 @@ import ProjectList from "../components/Project/ProjectList"
 const ProjectsSection = styled.section`
   height: 100%;
   display: flex;
-  width:100%;
+  width:100vw;
   background-color:#2f4858;
   flex-direction: column;
   align-items: center;
-  justify-content: space-evenly;
+ 
 `
 
 export default function Projects():React.ReactElement {
