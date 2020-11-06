@@ -6,6 +6,7 @@ const ContactSection = styled.section`
   display: flex;
   width: 100%;
   height:100%;
+  padding:64px 0;
   justify-content: center;
   background-color: #5b5a5c;
   @media (max-width: 884px) {

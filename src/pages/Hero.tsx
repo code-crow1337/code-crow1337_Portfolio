@@ -11,7 +11,7 @@ const HeroSection = styled.section`
   display: flex;
   width:100%;
   flex-wrap:wrap;
-  margin-bottom:16px;
+  margin-bottom:80px;
   justify-content:center;
   @media (max-width: 884px) {
   flex-direction: column;
@@ -93,7 +93,7 @@ export default function Hero() {
           iconType={faLinkedin}
           link="https://www.linkedin.com/in/josephine-een"
         />
-        <SocialIcon iconType={faEnvelope} link="josephine.een@gmail.com" />
+        <SocialIcon iconType={faEnvelope} link="mailto:josephine.een@gmail.com" />
       </IconsList>
     </HeroSection>
   )

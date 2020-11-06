@@ -52,7 +52,7 @@ main {
 }
 section {
   box-sizing:border-box;
-  margin: 60px 0 0;
+/*   margin: 60px 0 0; */
   padding:16px;
   width:100%;
   height:100vh;
@@ -69,12 +69,11 @@ section {
     min-width:64px;
     max-width:200px;
     padding:4px 4px 8px;
-    font-family: "Playfair Display", serif;
+    font-family:'Raleway', sans-serif;
     height:48px;
     font-size:1.3rem;
-    font-weight:800;
-    border:none;
-    top:-3px;
+    font-weight:600;
+    border:2px solid white;
     color:white;
     border-radius:24px;
     letter-spacing:2px;

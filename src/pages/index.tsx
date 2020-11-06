@@ -17,9 +17,8 @@ export default function Home(props: PageProps) {
           <Fade left>
             <Contact />
           </Fade>
-          <Fade left>
-            <Projects />
-          </Fade>
+
+          <Projects />
 
           <Fade left>
             <Skills />
