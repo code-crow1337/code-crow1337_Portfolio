@@ -3,8 +3,6 @@ import React from "react"
 import styled from "styled-components"
 import { TProjectData } from "../../../types"
 
-import flutterProject from "/home/josephine/Dev/gatsby/portfolio/src/assets/flutterProject.png"
-import { faGithub } from "@fortawesome/free-brands-svg-icons"
 
 type TisLeft = {
   isLeft: boolean
@@ -15,14 +13,15 @@ const ProjectContainer = styled.div<TisLeft>`
   align-items: center;
   justify-content: space-between;
   background-color: lightblue;
-  height: 480px;
-  padding: 16px;
+  height: 500px;
+  padding: 16px 16px 24px;
   width: 364px;
   background-color: #2d2a2f;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   margin: 8px 0;
   border: 4px solid white;
   position: relative;
+  
   ${({ isLeft }) =>
     isLeft &&
     `
@@ -50,11 +49,18 @@ const ProjectContainer = styled.div<TisLeft>`
   }
   `}
     @media (max-width: 893px) {
-    &::before,&::after{
-      height:0;
-      width:0;
+    &::before,
+    &::after {
+      height: 0;
+      width: 0;
+    }
+    @media (max-width: 360px) {
+      padding: 16px 8px;
+      width: 100%;
     }
   }
+
+
 `
 const ProjectImageContainer = styled.div`
   display: flex;
@@ -79,44 +85,35 @@ const ProjectDate = styled.h4`
   font-size: 1.2rem;
   margin: 0px 0px 16px;
 `
+const ProjectTitle = styled.h4`
+  font-size: 1.5rem;
+  margin:8px 0px;
+  border-bottom:2px solid #81ff70;
+`
 const ProjectInfo = styled.p`
-  font-size: 1rem;
+  text-align: center;
+  font-size: 1.2rem;
   margin: 0;
-  align-self: flex-start;
 `
 const ProjectBTNContainer = styled.footer`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-evenly;
   margin-top: 18px;
   button {
     background-color: #03b375;
-    font-size: 0.9rem;
-    max-width: 140px;
+    max-width: 172px;
     height: 56px;
     width: 100%;
+    min-width: 124px;
     position: relative;
     border-radius: 32px;
-    svg {
-      font-size: 24px;
-    }
+    font-size: 1rem;
   }
-`
-const LiveButton = styled.button`
-  position: absolute;
-  top: 52%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: fit-content;
-  padding: 4px 16px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  background-color: #00b9a3;
-  &:hover,
-  &:active,
-  &:focus {
-    top: 54%;
-    transform: translate(-50%, -50%);
+  @media (max-width: 360px) {
+    button {
+      font-size: 0.8rem;
+    }
   }
 `
 const renderTechnologies = (technologiesArr: string[]): string[] => {
@@ -124,27 +121,15 @@ const renderTechnologies = (technologiesArr: string[]): string[] => {
   return tempArr.join().split("")
 }
 export default function Project(props: TProjectData): React.ReactElement {
-  const { name, tech, date, sourceCode, live, img, left } = props
+  const { name, tech, date, sourceCode, live, img, left, text } = props
+  console.log("text", text)
   return (
     <ProjectContainer isLeft={left}>
       <ProjectDate>{date}</ProjectDate>
       <ProjectImageContainer>
         <img src={img} alt="" />
-        {live !== "" ? (
-          <a href={live} target="_blank">
-            <LiveButton>online</LiveButton>
-          </a>
-        ) : (
-          ""
-        )}
       </ProjectImageContainer>
-      <ProjectInfo>
-        <strong>
-          Name:
-          <br />
-        </strong>
-        {name}
-      </ProjectInfo>
+      <ProjectTitle>{name}</ProjectTitle>
       <ProjectInfo>
         <strong>
           Technologies:
@@ -154,11 +139,16 @@ export default function Project(props: TProjectData): React.ReactElement {
       </ProjectInfo>
 
       <ProjectBTNContainer>
-        <button>Source code</button>
-        <button>
-          <FontAwesomeIcon icon={faGithub}></FontAwesomeIcon>
-          Github Repo
-        </button>
+        <a href={sourceCode} target="_blank">
+          <button>Source code</button>
+        </a>
+        {text ? (
+          <a href={live} target="_blank">
+            <button>{text}</button>
+          </a>
+        ) : (
+          ""
+        )}
       </ProjectBTNContainer>
     </ProjectContainer>
   )

@@ -8,11 +8,10 @@ const Navbar = styled.nav`
   background-color: #2d2a2f;
   height: 64px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
-  width: 100vw;
   display: flex;
   justify-content: center;
   position: fixed;
-  width:100%;
+  width: 100vw;
   top: 0;
   // transition: top 10s ease-in-out;
   z-index: 9999;
@@ -20,7 +19,6 @@ const Navbar = styled.nav`
   @media (max-width: 884px) {
     flex-direction: column;
     position: fixed;
-    width: 100%;
     justify-content: flex-start;
     background-color: #2d2a2f;
     transition: all 0.3s ease-in;
@@ -31,6 +29,7 @@ const Navbar = styled.nav`
 const Toggle = styled.div<THamburgerMenu>`
   display: none;
   height: 100%;
+  width:100%;
   cursor: pointer;
   padding: 0 10vw;
 
@@ -41,14 +40,13 @@ const Toggle = styled.div<THamburgerMenu>`
 const Navbox = styled.div<THamburgerMenu>`
   display: flex;
   height: 100%;
-  min-width:800px;
-  max-width:1000px;
+  max-width: 1000px;
   justify-content: space-around;
   align-items: center;
+  min-width: 280px;
   @media (max-width: 884px) {
     flex-direction: column;
     position: fixed;
-    min-width: 100%;
     height: 100vh;
     justify-content: flex-start;
     padding-top: 24px;

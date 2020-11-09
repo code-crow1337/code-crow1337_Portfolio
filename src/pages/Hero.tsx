@@ -19,6 +19,7 @@ const HeroSection = styled.section`
   align-items:center;
     transition: all 0s ease 0s;
   }
+
 `
 const ImageFrameHexagon = styled.div`
   display: flex;
@@ -27,8 +28,8 @@ const ImageFrameHexagon = styled.div`
   height: 50vw;
   max-width: 633px;
   max-height: 613px;
-  min-width:300px;
-  min-height:315px;
+  min-width:315px;
+  min-height:300px;
   background-color: #424242;
   border: 2px solid white;
   -webkit-clip-path: polygon(
@@ -47,6 +48,11 @@ const ImageFrameHexagon = styled.div`
     display: block;
     object-position: 0% 100%;
     object-fit: cover;
+  }
+  @media (max-width: 320px) {
+    font-size: 1.6rem;
+    min-width:75vw;
+    min-height:72vw;
   }
 `
 const IconsList = styled.div`

@@ -96,12 +96,20 @@ const LinkItem = styled.li<TLinkItem>`
       animation: none;
     }
   }
+  @media (max-width: 360px) {
+    padding: 8px;
+     font-size:1rem;
+    }
 `
 const LogoItem = styled.li`
   font-size: 2rem;
   margin: 0 24px;
   list-style:none;
   font-family: "Playfair Display", serif;
+    @media (max-width: 360px) {
+     font-size:1.5rem;
+     margin: 0 0px;
+    }
 `
 const currentSelection = styled.li`
   background-color: green;

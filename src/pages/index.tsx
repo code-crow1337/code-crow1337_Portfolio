@@ -20,9 +20,8 @@ export default function Home(props: PageProps) {
 
           <Projects />
 
-          <Fade left>
             <Skills />
-          </Fade>
+      
         </main>
       </Layout>
     </>

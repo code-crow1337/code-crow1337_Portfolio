@@ -17,4 +17,5 @@ export type TProjectData = {
   live: string;
   img: string;
   left?:boolean;
+  text?:string;
 }

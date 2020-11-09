@@ -11,7 +11,6 @@ import { TErrorMessage } from "../../types"
   max-width: 1000px;
   width: 64vw;
   height: 100%;
-  min-width: 340px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -19,6 +18,10 @@ import { TErrorMessage } from "../../types"
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
   @media (max-width: 884px) {
     padding: 8px;
+    width: 100%;
+  }
+  @media (max-width: 360px) {
+    padding: 4px;
     width: 100%;
   }
 `

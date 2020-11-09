@@ -27,6 +27,7 @@ body {
   color:white;
   font-family:'Raleway', sans-serif;
   box-sizing:border-box;
+  overflow-x: hidden;
 }
 h1,h2,h3 {
   margin:0;
@@ -45,8 +46,12 @@ main {
   flex-direction:column;
   justify-content:center; 
   @media (max-width: 884px) {
-  margin: 8px 0px; 
+  margin: 40px 0px; 
   padding: 20px 0px;
+  width:100%;
+  }
+  @media (max-width: 360px) {
+    padding: 20px 0px;
   width:100%;
   }
 }
@@ -62,6 +67,10 @@ section {
   height:100%;
   width:100vw;
   }
+  @media (max-width: 360px) {
+    padding:8px;
+  }
+  
 
 }
   button, input[type=submit]{

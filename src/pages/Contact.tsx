@@ -8,10 +8,8 @@ const ContactSection = styled.section`
   height:100%;
   padding:64px 0;
   justify-content: center;
-  background-color: #5b5a5c;
-  @media (max-width: 884px) {
-    background-color: #5b5a5c;
-  }
+  background-color: #3E3A41;
+
 `
 
 export default function Contact() {

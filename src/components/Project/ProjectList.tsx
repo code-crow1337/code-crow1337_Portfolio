@@ -7,6 +7,7 @@ import foodMap from "../../assets/FoodMap_homepage.png"
 import githubSocial from "../../assets/github_user_info.png"
 import lassieApp from "../../assets/startScreen_lassie.png"
 import chatApp from "../../assets/chatApp_conversation.png"
+import covidApp from "../../assets/covidApp.png"
 
 const ProjectListContainer = styled.div`
   display: flex;
@@ -23,16 +24,20 @@ const ProjectListContainer = styled.div`
     width: 100vw;
   }
   @media (max-width: 412px) {
+    align-items: center;
+    padding:8px;
+  }
+  @media (max-width: 320px) {
     background-color:blue;
     align-items: center;
+    padding:4px;
   }
 `
 const ProjectPosRight = styled.div`
   align-self: flex-end;
 
   @media (max-width: 884px) {
-    align-items: center;
-    background-color:red;
+    align-items: flex-end;
   }
 
 `
@@ -58,12 +63,21 @@ const renderListItems = () => {
       img: flutterProject,
     },
     {
+      name: "Covid-19 world map",
+      tech: ["React, JavaScript, Node"],
+      date: "2020/07/3",
+      sourceCode: "https://github.com/code-crow1337/COVID19",
+      live: "https://priceless-kowalevski-ffd338.netlify.app/",
+      img: covidApp,
+    },
+    {
       name: "Food Map",
       tech: ["Node", "JavaScript", "React", "TypeScript", "CSS"],
       date: "2020/07/30",
       sourceCode: "https://github.com/johnnyka/Food-Map",
-      live: "",
+      live: "https://drive.google.com/file/d/1HNsxI7HWDmhsLZ3dLK6R2F581CfMRXMA/view?usp=sharing",
       img: foodMap,
+      text:"Demo"
     },
     {
       name: "Lassie App",
@@ -88,6 +102,7 @@ const renderListItems = () => {
       sourceCode: "https://github.com/code-crow1337/chatApp_client",
       live: "https://code-crow1337-chat-application.herokuapp.com/",
       img: chatApp,
+      text:"Live"
     },
   ]
   return data.map((project: TProjectData, index: number) => {

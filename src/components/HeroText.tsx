@@ -16,6 +16,7 @@ width:48vw;
   margin-left:0;
   width:100%;
   }
+
 `
 ;
 
@@ -29,7 +30,10 @@ const HeroTextStyle = styled.h1`
   @media (max-width: 884px) {
  font-size:2.5rem;
   }
+  @media (max-width:416px) {
+ font-size:2.2rem;
   
+}
 `
 const SecondaryCharColor = styled.span`
  width: fit-content;
@@ -44,6 +48,10 @@ const SecondaryText = styled.h2`
   @media (max-width: 884px) {
  font-size:1.5rem;
   }
+  @media (max-width:416px) {
+ font-size:1.2rem;
+  
+}
 `
 
 
