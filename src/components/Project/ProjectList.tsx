@@ -28,7 +28,6 @@ const ProjectListContainer = styled.div`
     padding:8px;
   }
   @media (max-width: 320px) {
-    background-color:blue;
     align-items: center;
     padding:4px;
   }
@@ -107,11 +106,11 @@ const renderListItems = () => {
   ]
   return data.map((project: TProjectData, index: number) => {
     return index % 2 === 0 ? (
-      <Fade left delay={500}>
+      <Fade left delay={500} key={`${project.date}_${project.name}`}>
         <Project {...project} />
       </Fade>
     ) : (
-      <ProjectPosRight>
+      <ProjectPosRight key={`${project.date}_${project.name}`}>
         <Fade right delay={500}>
           <Project {...project} left />
         </Fade>

@@ -12,7 +12,6 @@ const ProjectContainer = styled.div<TisLeft>`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  background-color: lightblue;
   height: 500px;
   padding: 16px 16px 24px;
   width: 364px;
@@ -140,7 +139,7 @@ export default function Project(props: TProjectData): React.ReactElement {
 
       <ProjectBTNContainer>
         <a href={sourceCode} target="_blank">
-          <button>Source code</button>
+          <button>Source<br/>code</button>
         </a>
         {text ? (
           <a href={live} target="_blank">

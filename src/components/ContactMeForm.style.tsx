@@ -4,7 +4,7 @@ import styled, { css } from "styled-components";
 import { TErrorMessage } from "../../types"
 
  export const ContactFormContainer = styled.div`
-  background-color: #2f4858;
+  background-color: #1F1C21;
   border: 4px solid #00de92;
   padding: 16px;
   display: flex;
@@ -38,7 +38,7 @@ export const ContactContext = styled.p`
   padding: 8px;
   width: 72%;
   font-size:1.3rem;
-  background-color: #006c82;
+  background-color: #1F1C21;
   @media (max-width: 884px) {
     font-size: 1.2rem;
     width: 100%;
@@ -89,7 +89,7 @@ export const FormInputText = styled.input`
   resize: none;
   font-family: "Raleway", sans-serif;
   width: 100%;
-  background-color: #2f4858;
+  background-color: #1F1C21;
   color: white;
   box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
   border: none;

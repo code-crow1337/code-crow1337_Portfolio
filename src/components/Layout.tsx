@@ -4,6 +4,7 @@ import { PageProps } from "gatsby"
 import NavigationBar from "../components/NavigationBar/NavigationBar"
 import "typeface-raleway"
 import Footer from "./Footer/Footer"
+import ToTheTop from "./ToTheTop"
 
 const fadeIn = keyframes`
 0% {
@@ -28,6 +29,7 @@ body {
   font-family:'Raleway', sans-serif;
   box-sizing:border-box;
   overflow-x: hidden;
+  position:relative;
 }
 h1,h2,h3 {
   margin:0;
@@ -118,6 +120,7 @@ export default function Layout({
       <GlobalStyle />
       <NavigationBar location={location} />
       {children}
+      <ToTheTop />
       <Footer />
     </>
   )

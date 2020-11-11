@@ -13,6 +13,7 @@ const HeroSection = styled.section`
   flex-wrap:wrap;
   margin-bottom:80px;
   justify-content:center;
+  max-width:1900px;
   @media (max-width: 884px) {
   flex-direction: column;
   justify-content:flex-start;

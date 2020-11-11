@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import React, { useState, useEffect } from "react"
 import styled, { keyframes, css } from "styled-components"
 import "typeface-playfair-display"
@@ -140,9 +141,9 @@ export default function NavigationLink({
     const middleLogoPos = Math.round(links.length / 2) - 1
     const tempArr = links.map((item: string, index: number) => (
       <div key={`${index}+${item}`} onClick={() => handleClick(false)}>
-        <a href={`#${item}`}>
+        <Link to={`#${item}`}>
           <LinkItem selected={item === currentPath}>{item}</LinkItem>
-        </a>
+        </Link>
       </div>
     ))
     tempArr[middleLogoPos] = (
@@ -150,9 +151,9 @@ export default function NavigationLink({
         key={`${middleLogoPos}+${links[middleLogoPos]}`}
         onClick={() => handleClick(false)}
       >
-        <a href={`#home`} key={`${middleLogoPos}+${links[middleLogoPos]}`}>
+        <Link to={`#home`} key={`${middleLogoPos}+${links[middleLogoPos]}`}>
           <LogoItem>{links[middleLogoPos]}</LogoItem>
-        </a>
+        </Link>
       </div>
     )
     return tempArr
